@@ -3,12 +3,13 @@
 
 // Everytime you change the collection, run getAllPrice()
 
-const minPricesText = Array.from(document.querySelectorAll('.minPrice')).map(e => e.textContent)
+const minPricesText = Array.from(document.querySelectorAll(`#resultTable .minPrice`)).map(e => e.textContent)
 
 
 const extractPrices = myQuery => {
-    let priceCells = Array.from(document.querySelectorAll(myQuery));
+    let priceCells = Array.from(document.querySelectorAll(`#resultsTable ${myQuery}`));
     let prices = priceCells.map(elem => Number(elem.textContent.replace(/[^0-9.]/g, "")));
+    console.log(myQuery, ":", prices)
     return prices
 }
 
